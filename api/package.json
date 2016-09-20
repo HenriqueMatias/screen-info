@@ -1,0 +1,16 @@
+{
+  "name": "screen-info-api",
+  "version": "1.0.0",
+  "description": "Node.js on Docker",
+  "author": "Henrique Matias <lhmatias@gmail.com>",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "restify": "^4.0.0",
+    "mongoose": "^4.0.0",
+    "wagner-core@0.2.0":"2.0"
+  }
+}
