@@ -1,0 +1,36 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+body{
+  background-color: #009688!important;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 12px;
+  overflow: auto;
+}
+
+li.w3-card-4{
+  list-style: none;
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+#status {
+  /* avoid an excessively wide status text */
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 400px;
+  width: 400px;
+  height: auto;
+  max-height: 350px;
+  padding-left: 15px;
+  padding-right: 15px;
+  overflow: auto;
+}
+
+#info-list{
+  display: block;
+  margin-top: 86px;
+}

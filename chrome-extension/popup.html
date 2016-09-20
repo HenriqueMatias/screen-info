@@ -1,0 +1,74 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <title>Getting Started Extension's Popup</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="css/app.css" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+      </div>
+    </nav>
+    <div id="status">
+      <ul id="info-list">
+        <li class="w3-card-4 w3-white">
+          <header class="w3-container w3-light-grey">
+            <h4>John Doe</h4>
+          </header>
+          <div class="w3-container">
+            <p>1 new friend request</p>
+            <p>President/CEO at Mighty Schools...</p>
+          </div>
+          <button class="w3-btn-block w3-dark-grey">+ Connect</button>
+        </li>
+        <li class="w3-card-4 w3-white">
+          <header class="w3-container w3-light-grey">
+            <h4>John Doe</h4>
+          </header>
+          <div class="w3-container">
+            <p>1 new friend request</p>
+            <p>President/CEO at Mighty Schools...</p>
+          </div>
+          <button class="w3-btn-block w3-dark-grey">+ Connect</button>
+        </li>
+        <li class="w3-card-4 w3-white">
+          <header class="w3-container w3-light-grey">
+            <h4>John Doe</h4>
+          </header>
+          <div class="w3-container">
+            <p>1 new friend request</p>
+            <p>President/CEO at Mighty Schools...</p>
+          </div>
+          <button class="w3-btn-block w3-dark-grey">+ Connect</button>
+        </li>
+        <li class="w3-card-4 w3-white">
+          <header class="w3-container w3-light-grey">
+            <h4>John Doe</h4>
+          </header>
+          <div class="w3-container">
+            <p>1 new friend request</p>
+            <p>President/CEO at Mighty Schools...</p>
+          </div>
+          <button class="w3-btn-block w3-dark-grey">+ Connect</button>
+        </li>
+      </ul>
+    </div>
+    <img id="image-result" hidden>
+    <script src="js/jquery-1.12.3.min.js"></script>
+    <script src="js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="js/popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "screen-info",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "tsc" : "tsc -w"
+  },
+  "dependences":{
+  		"node": "^3.1.0"
+  },
+  "keywords": [],
+  "author": "henrique matias",
+  "license": "ISC"
+}

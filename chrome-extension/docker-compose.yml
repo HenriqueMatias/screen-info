@@ -1,0 +1,77 @@
+nx:
+  image: 192.168.0.215:5000/nginx
+  container_name: nginx
+  restart: always
+  ports:
+   - "80:80"
+  volumes:
+   - ${PWD}/../docker/nginx_conf:/etc/nginx/conf.d
+  volumes_from:
+   - php:rw
+  links:
+   - php
+
+php:
+  image: 192.168.0.215:5000/php:5.5
+  container_name: php
+  restart: always 
+  command: bash -c "sed -i \"s/memory_limit = 128M/memory_limit = 512M/\" /usr/local/etc/php/php.ini && php-fpm"
+  ports:
+   - "9000:9000"
+  volumes:
+   - ${PWD}/../yii_1_1_14:/var/www/yii_1_1_14
+   - ${PWD}/../extensoes:/var/www/extensoes
+   - ${PWD}/../tradetools:/var/www/html/tradetools
+  links:
+   - postgres:localhost_postgres
+   - mongo:localhost_mongo
+   - redis-sentinel:localhost_redis-sentinel
+
+postgres:
+  image: 192.168.0.215:5000/postgres:9.4
+  container_name: postgres
+  restart: always
+  environment:
+   - POSTGRES_USER=webadm
+   - POSTGRES_PASSWORD=A123456
+  ports:
+   - "5432:5432"
+  volumes:
+   - ${PWD}/../tradetools/protected/data/fabricante_phactory.sql:/var/lib/postgresql/data/fabricante_phactory.sql
+   - ${PWD}/../docker/postgres_conf/postgresql.conf:/var/lib/postgresql/data/postgresql.conf
+   - ${PWD}/../volumes/postgres:/var/lib/postgresql/data
+
+mongo:
+  image: 192.168.0.215:5000/mongo
+  container_name: mongo
+  restart: always
+  ports:
+   - "27017:27017"
+  volumes:
+   - ${PWD}/../volumes/mongo:/data/db
+
+redis:
+  image: 192.168.0.215:5000/redis:3.0
+  container_name: redis
+  restart: always
+  ports:
+   - "6379:6379"
+
+redis-sentinel:
+  image: 192.168.0.215:5000/redis-sentinel:3.0
+  container_name: redis-sentinel
+  restart: always
+  ports:
+   - "26379:26379"
+  links:
+   - redis
+
+resque-web:
+  image: 192.168.0.215:5000/resque-web
+  container_name: resque_web
+  restart: always
+  command: "/opt/resque-web/run --sentinel localhost_redis-sentinel:26379 --master mymaster"
+  ports:
+   - "9292:9292"
+  links:
+   - redis-sentinel:localhost_redis-sentinel
